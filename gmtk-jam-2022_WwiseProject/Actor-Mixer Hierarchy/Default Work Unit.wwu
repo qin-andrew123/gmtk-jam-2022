@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{92B2EBA4-80F8-4494-88CB-73C06B703778}" SchemaVersion="103">
+<WwiseDocument Type="WorkUnit" ID="{EAE746EE-662B-46C3-B33F-E08F3685CD80}" SchemaVersion="103">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{92B2EBA4-80F8-4494-88CB-73C06B703778}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{EAE746EE-662B-46C3-B33F-E08F3685CD80}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="Test" ID="{B42F117D-4D5D-46AB-ADE1-6769104555A2}" ShortID="51775706">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{146F185B-DB80-430E-A4C6-B003B11333E1}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2AC37F2-E8CA-43DE-8FAF-817A8B993675}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="BT INSTRUMENT Bird Pipe Chirp" ID="{5D483747-4BC7-4CE8-8FA0-D90D0450FADE}" ShortID="350853698">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{146F185B-DB80-430E-A4C6-B003B11333E1}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2AC37F2-E8CA-43DE-8FAF-817A8B993675}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BT INSTRUMENT Bird Pipe Chirp" ID="{B6FC3EAA-D971-4AD0-A253-E11B26A0716E}">
+									<Language>SFX</Language>
+									<AudioFile>BT INSTRUMENT Bird Pipe Chirp.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="998391283"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="BT INSTRUMENT Bird Pipe Chirp" ID="{B6FC3EAA-D971-4AD0-A253-E11B26A0716E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>
