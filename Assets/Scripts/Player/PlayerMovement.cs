@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     private float playerMoveSpeed;
     private float horizontalInput;
     private float verticalInput;
+    private Vector2 mousePosition;
+
+    public Rigidbody2D rigidBody;
+    public Camera playerCamera;
 
     public float GetPlayerMoveSpeed()
     {
@@ -21,12 +25,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         GetInputValue();
+        mousePosition = playerCamera.ScreenToWorldPoint(Input.mousePosition);
+        
     }
 
     private void FixedUpdate()
     {
         MovePlayer();
+        Vector2 lookDirection = mousePosition - rigidBody.position;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+        rigidBody.rotation = angle;
     }
+
     private void GetInputValue()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -35,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector3 movementDirection = new Vector3(horizontalInput,verticalInput);
-        transform.Translate(movementDirection.normalized * playerMoveSpeed * Time.fixedDeltaTime);
+        Vector2 movementDirection = new Vector2(horizontalInput,verticalInput);
+        rigidBody.MovePosition(rigidBody.position + movementDirection * playerMoveSpeed * Time.fixedDeltaTime);
     }
 }
