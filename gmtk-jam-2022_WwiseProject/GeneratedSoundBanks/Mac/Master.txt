@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3157003241	Test			\Default Work Unit\Default\Test	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	998391283	BT INSTRUMENT Bird Pipe Chirp	D:\Юнити\Джем\gmtk-jam-2022\gmtk-jam-2022_WwiseProject\.cache\Mac\SFX\BT INSTRUMENT Bird Pipe Chirp_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Test\BT INSTRUMENT Bird Pipe Chirp		66140
+
