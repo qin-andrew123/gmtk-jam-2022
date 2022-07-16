@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{6D781A9F-E912-4607-AE71-CC44E6A86E87}" SchemaVersion="103">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{6D781A9F-E912-4607-AE71-CC44E6A86E87}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{6D781A9F-E912-4607-AE71-CC44E6A86E87}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Level_indicator" ID="{9C3D340C-4EEA-4D49-A039-35C6458771A1}"/>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>
