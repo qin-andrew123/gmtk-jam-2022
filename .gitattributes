@@ -54,3 +54,4 @@
 *.aar filter=lfs diff=lfs merge=lfs -text
 *.dat filter=lfs diff=lfs merge=lfs -text
 *.bnk filter=lfs diff=lfs merge=lfs -text
+*.akd filter=lfs diff=lfs merge=lfs -text
