@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrenadeController : BulletController
+public class Grenade : Bullet
 {
-    private int damage;
     public float explosionRadius = 3f;
     public GameObject explosionEffect;
     public float timeUntilExplosion = 10f; // in seconds
@@ -15,17 +14,17 @@ public class GrenadeController : BulletController
 
     protected override void Update()
     {
-        timeUntilExplosion -= Time.deltaTime;
         if (timeUntilExplosion <= 0 || hasExploded)
-            Explode();
-        base.Update();
-    }
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        Explode();
+            DestroyBullet();
+        
+        if (Vector2.Distance(startPosition, transform.position) >= range)
+            hasExploded = true;
+  
+        timeUntilExplosion -= Time.deltaTime;
+
     }
 
-    public void Explode()
+    protected override void DestroyBullet()
     {
         Collider2D[] objectsInRange = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
  
