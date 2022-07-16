@@ -2,50 +2,79 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MovementState
+{
+    Idle,
+    Moving,
+
+}
+
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    private float playerMoveSpeed;
-    private float horizontalInput;
-    private float verticalInput;
+    [SerializeField] private float playerMoveSpeed;
+    [SerializeField] private ContactFilter2D movementFilter;
+    [SerializeField] private float collisionOffset = 0.01f;
     private Vector2 mousePosition;
+    private Vector2 movementDirection;
+    private MoveSpeed moveSpeed;
+    private MovementState currentState;
+    private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
     public Rigidbody2D rigidBody;
     public Camera playerCamera;
+    
 
-    public float GetPlayerMoveSpeed()
+    private void Start()
     {
-        return playerMoveSpeed;
+        moveSpeed = GetComponent<MoveSpeed>();
     }
-    public void SetPlayerMoveSpeed(float desiredSpeed)
-    {
-        playerMoveSpeed = desiredSpeed;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         GetInputValue();
         mousePosition = playerCamera.ScreenToWorldPoint(Input.mousePosition);
-        
     }
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (movementDirection != Vector2.zero)
+        {
+            bool success = TryToMovePlayer(movementDirection);
+            if (!success)
+            {
+                success = TryToMovePlayer(new Vector2(movementDirection.x, 0));
+                if (!success)
+                {
+                    success = TryToMovePlayer(new Vector2(0, movementDirection.y));
+                }
+            }
+        }
+        
         Vector2 lookDirection = mousePosition - rigidBody.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rigidBody.rotation = angle;
     }
 
+    // receives input value each frame and puts into these two floats 
     private void GetInputValue()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        movementDirection.x = Input.GetAxisRaw("Horizontal");
+        movementDirection.y = Input.GetAxisRaw("Vertical");
     }
 
-    private void MovePlayer()
+    private bool TryToMovePlayer(Vector2 direction)
     {
-        Vector2 movementDirection = new Vector2(horizontalInput,verticalInput);
-        rigidBody.MovePosition(rigidBody.position + movementDirection * playerMoveSpeed * Time.fixedDeltaTime);
+        int count = rigidBody.Cast(direction, movementFilter, castCollisions, playerMoveSpeed * Time.fixedDeltaTime + collisionOffset);
+        if (count == 0)
+        {
+            rigidBody.MovePosition(rigidBody.position + playerMoveSpeed * Time.fixedDeltaTime * direction);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
+
+
 }

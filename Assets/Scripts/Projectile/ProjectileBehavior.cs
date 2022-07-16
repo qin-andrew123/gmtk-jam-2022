@@ -17,14 +17,13 @@ public class ProjectileBehavior : MonoBehaviour
     {
         if (rb != null)
         {
-            Debug.Log("RigidBody is not null");
             rb.velocity = difference * classBulletSpeed * Time.fixedDeltaTime;
         }
     }
 
     private void OnEnable()
     {
-        difference = (Vector2) (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - rb.position;
+        difference = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - rb.position;
         difference.Normalize();
         StartCoroutine(DestroyTimer(timeTillDestroy));
     }
