@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,10 @@ public class BulletController : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
     }
 
     // Update is called once per frame
