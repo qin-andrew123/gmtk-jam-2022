@@ -22,15 +22,15 @@ public class EnemyCollisionManager : MonoBehaviour
             Debug.Log("Enemy took " + hitDamageValue + " amount of damage");
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("PlayerProjectile"))
-        {
-            hitDamageAmount = collision.gameObject.GetComponent<DamageAmount>();
-            hitDamageValue = hitDamageAmount.GetDamageAmount();
-            health.TakeDamage(hitDamageValue);
-            Destroy(collision.gameObject);
-            Debug.Log("Enemy took " + hitDamageValue + " amount of damage");
-        }
-    }
+    // private void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     if (collision.gameObject.CompareTag("PlayerProjectile"))
+    //     {
+    //         hitDamageAmount = collision.gameObject.GetComponent<DamageAmount>();
+    //         hitDamageValue = hitDamageAmount.GetDamageAmount();
+    //         health.TakeDamage(hitDamageValue);
+    //         Destroy(collision.gameObject);
+    //         Debug.Log("Enemy took " + hitDamageValue + " amount of damage");
+    //     }
+    // }
 }
