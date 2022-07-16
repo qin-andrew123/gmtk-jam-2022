@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{CD55D0B8-66B0-4C7D-B51A-962D8172ADDF}" SchemaVersion="103">
 	<InteractiveMusic>
-		<WorkUnit Name="Default Work Unit" ID="{CD55D0B8-66B0-4C7D-B51A-962D8172ADDF}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{CD55D0B8-66B0-4C7D-B51A-962D8172ADDF}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSegment Name="base_marimba tail" ID="{DB1B2202-CE21-450C-9D17-D04C5EB9B320}" ShortID="435155472">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="48000.0208333333"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{146F185B-DB80-430E-A4C6-B003B11333E1}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2AC37F2-E8CA-43DE-8FAF-817A8B993675}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="base_marimba tail" ID="{2198FC5D-FE0F-4A17-88BA-3C0311C0C2BF}" ShortID="143597301">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2AC37F2-E8CA-43DE-8FAF-817A8B993675}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="base_marimba tail" ID="{17FCF58B-1DB9-4B32-B240-35E88DC7B41F}">
+									<Language>SFX</Language>
+									<AudioFile>base_marimba tail.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="30444400"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{E9DA8E92-22E5-4414-ADD0-43B2279AAC22}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<ObjectLists>
+								<ObjectList Name="Sequences">
+									<Reference>
+										<Local>
+											<MusicTrackSequence Name="" ID="{DDD3C6D1-70A6-4AC1-A651-57F86898151E}">
+												<ObjectLists>
+													<ObjectList Name="Clips">
+														<Reference>
+															<Local>
+																<MusicClip Name="base_marimba tail" ID="{B8CF492C-AF6A-461C-A543-7F64A41F8F3B}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="48000.0208333333"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="base_marimba tail" ID="{17FCF58B-1DB9-4B32-B240-35E88DC7B41F}"/>
+																</MusicClip>
+															</Local>
+														</Reference>
+													</ObjectList>
+												</ObjectLists>
+											</MusicTrackSequence>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicTrack>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Cues">
+							<Reference>
+								<Local>
+									<MusicCue Name="Entry Cue" ID="{106705FF-C358-47F9-B4DE-6728570232C7}"/>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicCue Name="Exit Cue" ID="{C63A1AA5-934E-42AC-AB36-C820C145F88A}">
+										<PropertyList>
+											<Property Name="CueType" Type="int16" Value="1"/>
+											<Property Name="TimeMs" Type="Real64" Value="48000.0208333333"/>
+										</PropertyList>
+									</MusicCue>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSegment>
+			</ChildrenList>
+		</WorkUnit>
 	</InteractiveMusic>
 </WwiseDocument>
