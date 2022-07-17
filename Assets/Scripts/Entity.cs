@@ -9,12 +9,13 @@ public class Entity : MonoBehaviour
     public int currentHealth;
     
     public event Action OnDeath;
-    public event Action OnHit;
+    public event Action<int> OnHit;
 
     void Awake()
     {
         currentHealth = maxHealth;
     }
+    
 
     public void TakeDamage(int amount)
     {
@@ -25,7 +26,7 @@ public class Entity : MonoBehaviour
         }
         
         currentHealth -= amount;
-        OnHit?.Invoke();
+        OnHit?.Invoke(currentHealth);
     }
 
     public void SetHealth(int amount)

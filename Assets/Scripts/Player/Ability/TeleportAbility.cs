@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class aTeleportAbility : MonoBehaviour
+[CreateAssetMenu(menuName = "Abilities/Teleport")]
+public class TeleportAbility : Ability
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Activate(GameObject parent)
     {
-        
-    }
+        base.Activate(parent);
+        int radius = 1;
+        while(Physics2D.OverlapCircleAll(parent.transform.position, radius, LayerMask.GetMask("Enemy")).Length == 0)
+            radius++;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Collider2D[] objectsInRange = Physics2D.OverlapCircleAll(parent.transform.position, radius, LayerMask.GetMask("Enemy"));
+
+        var index = Random.Range (0, objectsInRange.Length);
+        Transform enemyTransform = objectsInRange[index].GetComponent<Transform>();
+        parent.transform.position = (Vector2)enemyTransform.transform.position + Vector2.right;
     }
 }

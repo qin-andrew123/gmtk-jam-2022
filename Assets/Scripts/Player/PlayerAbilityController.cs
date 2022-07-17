@@ -11,50 +11,49 @@ public class PlayerAbilityController : MonoBehaviour
     public Transform[] weapons;
     public Ability[] abilities;
 
-    public Image abilityImage;
-    public Image weaponImage;
+    // public Image abilityImage;
+    // public Image weaponImage;
     
     private AbilityHolder abilityHolder;
 
     private int selectedWeapon;
     private int selectedAbility;
 
-    // Start is called before the first frame update
-
-    private void Awake()
+    public event Action<int, int> OnAbilityChange;
+    private void Start()
     {
         abilityHolder = GetComponent<AbilityHolder>();
         ChoseAbilities();
         // transform abilities[selectedAbility].name to lowe case
-        switch (abilities[selectedAbility].name.ToLower())
-        {
-            case "dash":
-                Debug.Log("abilities[selectedAbility].name.ToLower():" + abilities[selectedAbility].name.ToLower());
-                abilityImage.sprite = Resources.Load<Sprite>("Sprites/Ability=Dash Icon");
-                break;
-            case "smash":
-                abilityImage.sprite = Resources.Load<Sprite>("Sprites/Ability=Slam Icon");
-                break;
-            case "teleport":
-                abilityImage.sprite = Resources.Load<Sprite>("Sprites/Ability=Teleport Icon");
-                break;
-            default:
-                break;
-        }
-        switch (selectedWeapon)
-        {
-            case 0:
-                weaponImage.sprite = Resources.Load<Sprite>("Sprites/fireball");
-                break;
-            case 1:
-                weaponImage.sprite = Resources.Load<Sprite>("Sprites/iceball");
-                break;
-            case 2:
-                weaponImage.sprite = Resources.Load<Sprite>("Sprites/lightningball");
-                break;
-            default:
-                break;
-        }
+        // switch (abilities[selectedAbility].name.ToLower())
+        // {
+        //     case "dash":
+        //         Debug.Log("abilities[selectedAbility].name.ToLower():" + abilities[selectedAbility].name.ToLower());
+        //         abilityImage.sprite = Resources.Load<Sprite>("Sprites/Ability=Dash Icon");
+        //         break;
+        //     case "smash":
+        //         abilityImage.sprite = Resources.Load<Sprite>("Sprites/Ability=Slam Icon");
+        //         break;
+        //     case "teleport":
+        //         abilityImage.sprite = Resources.Load<Sprite>("Sprites/Ability=Teleport Icon");
+        //         break;
+        //     default:
+        //         break;
+        // }
+        // switch (selectedWeapon)
+        // {
+        //     case 0:
+        //         weaponImage.sprite = Resources.Load<Sprite>("Sprites/fireball");
+        //         break;
+        //     case 1:
+        //         weaponImage.sprite = Resources.Load<Sprite>("Sprites/iceball");
+        //         break;
+        //     case 2:
+        //         weaponImage.sprite = Resources.Load<Sprite>("Sprites/lightningball");
+        //         break;
+        //     default:
+        //         break;
+        // }
         
     }
 
@@ -65,6 +64,8 @@ public class PlayerAbilityController : MonoBehaviour
         
         ActivateWeapon(combatChoice[0]);
         ActiveAbility(movementChoice[0]);
+        
+        OnAbilityChange?.Invoke(selectedAbility, selectedWeapon);
         
     }
 
