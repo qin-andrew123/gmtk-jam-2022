@@ -1448,6 +1448,11 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0136318775, y: 0.00076279725}
   m_Size: {x: 1.2796972, y: 1.0912361}
   m_Direction: 0
+--- !u!95 &1759303520 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2480460895911519830, guid: 46824bbca4def41f4bda936cd0e88f6c, type: 3}
+  m_PrefabInstance: {fileID: 1842523164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1842523164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1503,6 +1508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 705148870580690594, guid: 46824bbca4def41f4bda936cd0e88f6c, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1759303520}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46824bbca4def41f4bda936cd0e88f6c, type: 3}
 --- !u!1 &2025783549
