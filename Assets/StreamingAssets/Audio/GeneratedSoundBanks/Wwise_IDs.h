@@ -21,8 +21,11 @@ namespace AK
         static const AkUniqueID PLAY_CHARGER_DEATH = 2925990347U;
         static const AkUniqueID PLAY_CLICK = 311910498U;
         static const AkUniqueID PLAY_DASH = 2211787386U;
+        static const AkUniqueID PLAY_EXPBAZ = 4270539530U;
         static const AkUniqueID PLAY_GATEOPEN = 3788303255U;
         static const AkUniqueID PLAY_NAVIGATE = 3893482503U;
+        static const AkUniqueID PLAY_NORMAL_SNIP_ATTACK = 1067811349U;
+        static const AkUniqueID PLAY_NORMAL_SNIP_DEATH = 3758914473U;
         static const AkUniqueID PLAY_SHOTGUN = 992244U;
         static const AkUniqueID PLAY_SINGLE_AUTO = 1629017912U;
         static const AkUniqueID PLAY_STEPS = 2600469463U;
