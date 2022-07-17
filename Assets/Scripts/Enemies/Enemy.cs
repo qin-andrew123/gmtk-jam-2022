@@ -3,49 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] protected int maxHealth;
-    [SerializeField] protected int currentHealth;
     [SerializeField] protected float speed;
     [SerializeField] protected float stoppingDistance;
-    [SerializeField] protected float retreatDistance;
-    [SerializeField] protected GameObject projectile;
-    [SerializeField] protected float startTimeBetweenShots;
-    
-    private float timeBetweenShots;
+    [SerializeField] protected float attackRate;
+
+    private bool canAttack = true;
+
     public Transform player;
-    
-    private void Start()
+
+    public abstract void Attack();
+    public abstract void Move();
+
+    IEnumerator StartAttacking()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        timeBetweenShots = startTimeBetweenShots;
+        canAttack = false;
+        Attack();
+        yield return new WaitForSeconds(attackRate);
+        canAttack = true;
     }
 
     private void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance
-            && Vector2.Distance(transform.position, player.position) > retreatDistance)
-        {
-            transform.position = this.transform.position;
-        }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }
-
-        if (timeBetweenShots <= 0)
-        {
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            timeBetweenShots = startTimeBetweenShots;
-        }
-        else
-        {
-            timeBetweenShots -= Time.deltaTime;
-        }
+        if (canAttack)
+            StartCoroutine(StartAttacking());
+        
+        Move();
     }
 }
