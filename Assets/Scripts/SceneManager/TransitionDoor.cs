@@ -5,6 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class TransitionDoor : MonoBehaviour
 {
+    private void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManagerOnOnGameStateChanged;
+    }
+
+    private void GameManagerOnOnGameStateChanged(GameState state)
+    {
+        if (state != GameState.nextLevel)
+        {
+            gameObject.SetActive(false);
+        }
+        
+    }
     public void OnTriggerEnter2D(Collider2D collision)
     {
 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4270020553715735902}
   - component: {fileID: 4270020553715735899}
   - component: {fileID: 4270020553715735898}
-  - component: {fileID: 4270020553715735893}
   - component: {fileID: 8972901069259696394}
   m_Layer: 10
   m_Name: Enemy Sniper
@@ -237,20 +236,6 @@ PolygonCollider2D:
       - {x: 0.015625, y: 0.07421875}
       - {x: 0.0234375, y: 0.06640625}
       - {x: 0.0234375, y: 0.0703125}
---- !u!114 &4270020553715735893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4270020553715735903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80e77db9064999348b8ff7b15a944c3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealthValue: 5
-  defenseValue: 1
 --- !u!114 &8972901069259696394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,11 +248,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1fa98b4f9736747821e3f9959ca667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 10
   speed: 5
   stoppingDistance: 30
-  retreatDistance: 1
-  projectile: {fileID: 5196141513470838171, guid: 8b4e0c0b7479f4946b14f44816cc8a95, type: 3}
-  startTimeBetweenShots: 3
+  attackRate: 0
   player: {fileID: 8422530110084229728, guid: a27e53210f7751b49adcfca7c7ef6ab6, type: 3}
+  bulletPrefab: {fileID: 0}
+  bulletSpeed: 10
+  retreatDistance: 1

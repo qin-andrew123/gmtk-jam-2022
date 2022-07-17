@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public void PlayGame() {
         SceneManager.LoadScene("Map0");
+        GameManager.Instance.UpdateGameState(GameState.levelOne);
     }
 
     public void QuitGame() {

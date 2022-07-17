@@ -10,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2822941547469678507}
   - component: {fileID: 2822941547469678506}
-  - component: {fileID: 2822941547469678508}
   - component: {fileID: 2822941547469678509}
   - component: {fileID: 2822941547469678510}
-  - component: {fileID: 2822941547469678511}
   m_Layer: 10
   m_Name: Enemy Shooter
   m_TagString: Enemy
@@ -88,26 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2822941547469678508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2822941547469678505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 062c632d88f6d3e4a9ad034e743d4655, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 10
-  speed: 5
-  stoppingDistance: 15
-  retreatDistance: 5
-  projectile: {fileID: 5196141513470838171, guid: 8b4e0c0b7479f4946b14f44816cc8a95, type: 3}
-  startTimeBetweenShots: 2
-  player: {fileID: 8422530110084229728, guid: a27e53210f7751b49adcfca7c7ef6ab6, type: 3}
 --- !u!50 &2822941547469678509
 Rigidbody2D:
   serializedVersion: 4
@@ -181,17 +159,3 @@ PolygonCollider2D:
       - {x: 0.26587304, y: -0.46428573}
       - {x: 0.28174606, y: -0.4325397}
       - {x: 0.28174606, y: -0.36904764}
---- !u!114 &2822941547469678511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2822941547469678505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80e77db9064999348b8ff7b15a944c3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealthValue: 10
-  defenseValue: 3
