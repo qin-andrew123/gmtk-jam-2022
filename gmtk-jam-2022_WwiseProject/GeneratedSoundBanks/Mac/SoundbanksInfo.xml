@@ -20,7 +20,7 @@
 				<GameParameter Id="3983751694" Name="RTPC_ext_SFX_vol" ObjectPath="\Game Parameters\Default Work Unit\RTPC_ext_SFX_vol"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="4056684167" Language="SFX" Hash="3579330949">
+		<SoundBank Id="4056684167" Language="SFX" Hash="957114448">
 			<ObjectPath>\SoundBanks\Default Work Unit\Master</ObjectPath>
 			<ShortName>Master</ShortName>
 			<Path>Master.bnk</Path>
@@ -225,7 +225,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3893482503" Name="Play_navigate" ObjectPath="\Events\Default Work Unit\UI\Play_navigate" DurationType="OneShot" DurationMin="0.131708" DurationMax="0.199104">
+				<Event Id="3893482503" Name="Play_navigate" ObjectPath="\Events\Default Work Unit\UI\Play_navigate" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.179896">
 					<IncludedMemoryFiles>
 						<File Id="73006644" Language="SFX">
 							<ShortName>UI Navigate-002.wav</ShortName>
@@ -297,7 +297,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1629017912" Name="Play_Single_Auto" ObjectPath="\Events\Default Work Unit\Weapons\Play_Single_Auto" DurationType="Infinite">
+				<Event Id="1629017912" Name="Play_Single_Auto" ObjectPath="\Events\Default Work Unit\Weapons\Play_Single_Auto" DurationType="OneShot" DurationMin="0.583137" DurationMax="0.654550">
 					<IncludedMemoryFiles>
 						<File Id="202050271" Language="SFX">
 							<ShortName>SimpleRifleLayer-003.wav</ShortName>
