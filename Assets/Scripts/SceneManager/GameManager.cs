@@ -9,11 +9,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static GameObject Manager;
     public static bool gameIsPaused;
-<<<<<<< HEAD
     public delegate void Health(int amount);
     public static event Health UpdateHealth;
 
-=======
     public static event Action<GameState> OnGameStateChanged;
     public GameState gameState;
 
@@ -25,17 +23,8 @@ public class GameManager : MonoBehaviour
             case GameState.mainMenu:
                 HandleMainMenu();
                 break;
-            case GameState.rollingDice:
-                HandleRollingDice();
-                break;
             case GameState.levelOne:
                 HandleLevelOne();
-                break;
-            case GameState.levelTwo:
-                HandleLevelTwo();
-                break;
-            case GameState.levelThree:
-                HandleLevelThree();
                 break;
             case GameState.victory:
                 HandleVictory();
@@ -70,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
         UpdateGameState(GameState.mainMenu);
     }
->>>>>>> b18482e (really bare bones game manager)
+
     // Start is called before the first frame update
     void Awake() {
         print("GameManager Awake");
@@ -99,11 +88,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void HandleRollingDice()
-    {
-        throw new NotImplementedException();
-    }
-
     private void HandlePause()
     {
         throw new NotImplementedException();
@@ -119,29 +103,21 @@ public class GameManager : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    private void HandleLevelThree()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void HandleLevelTwo()
-    {
-        throw new NotImplementedException();
-    }
-
     private void HandleLevelOne()
     {
-        throw new NotImplementedException();
+        
+    }
+    private void HandleNextLevel()
+    {
+
     }
 }
 
 public enum GameState
 {
     mainMenu,
-    rollingDice,
     levelOne,
-    levelTwo,
-    levelThree,
+    nextLevel,
     victory,
     death,
     pause,
