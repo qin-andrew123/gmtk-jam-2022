@@ -134,6 +134,10 @@
 										<CustomState Name="" ID="{F2C8090D-8937-42FD-95ED-BACF23D4B2F1}" ShortID="363743292"/>
 									</CustomState>
 									<CustomState>
+										<StateRef Name="STATE_Gameover" ID="{B4575F7A-5B24-4BBF-91C7-6AC804E1E713}"/>
+										<CustomState Name="" ID="{F9EF41D2-74B1-46C7-82D5-799A9ACB19BB}" ShortID="894016907"/>
+									</CustomState>
+									<CustomState>
 										<StateRef Name="STATE_Rooms" ID="{65E97529-20E9-4D7C-9D7B-3D0A6B9C5A33}"/>
 										<CustomState Name="" ID="{AA7DA63A-FBC9-4273-B97B-A25AB55896E2}" ShortID="80580535"/>
 									</CustomState>
@@ -284,6 +288,10 @@
 									<CustomState>
 										<StateRef Name="STATE_Menu" ID="{B3EDE86E-CDF2-4778-918E-1FC6D29EEAC9}"/>
 										<CustomState Name="" ID="{55BF6188-EE16-40F2-AC34-7916F1700DA8}" ShortID="870855424"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="STATE_Gameover" ID="{B4575F7A-5B24-4BBF-91C7-6AC804E1E713}"/>
+										<CustomState Name="" ID="{9B71287C-EA94-43DA-925A-13932CC4A067}" ShortID="20479501"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="STATE_Rooms" ID="{65E97529-20E9-4D7C-9D7B-3D0A6B9C5A33}"/>
@@ -438,6 +446,10 @@
 										<CustomState Name="" ID="{ACC7DF1D-365A-4379-9FDF-C7C6FCADDB59}" ShortID="152763796"/>
 									</CustomState>
 									<CustomState>
+										<StateRef Name="STATE_Gameover" ID="{B4575F7A-5B24-4BBF-91C7-6AC804E1E713}"/>
+										<CustomState Name="" ID="{CBF5F3BA-A5A1-4E8A-B103-80FB801952C6}" ShortID="222095786"/>
+									</CustomState>
+									<CustomState>
 										<StateRef Name="STATE_Rooms" ID="{65E97529-20E9-4D7C-9D7B-3D0A6B9C5A33}"/>
 										<CustomState Name="" ID="{DB33A6D3-8DAD-4C69-AEDF-EFBB0CEDAA13}" ShortID="780515106"/>
 									</CustomState>
@@ -489,6 +501,10 @@
 							<CustomState>
 								<StateRef Name="STATE_Menu" ID="{B3EDE86E-CDF2-4778-918E-1FC6D29EEAC9}"/>
 								<CustomState Name="" ID="{0AD83BEC-DF31-490A-A990-C0E7DD06A3ED}" ShortID="337087703"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="STATE_Gameover" ID="{B4575F7A-5B24-4BBF-91C7-6AC804E1E713}"/>
+								<CustomState Name="" ID="{7E43852C-FD9C-4EA0-AFBE-8C5CA5B4D80F}" ShortID="763515314"/>
 							</CustomState>
 							<CustomState>
 								<StateRef Name="STATE_Rooms" ID="{65E97529-20E9-4D7C-9D7B-3D0A6B9C5A33}"/>
@@ -1034,6 +1050,17 @@
 						<ArgumentRef Name="STATE_Music" ID="{A1D6AEE6-077B-4C97-974C-A9FE5887D05F}"/>
 						<ArgumentRef Name="SWITCH_rooms" ID="{1FB7C126-FFB0-4864-B143-1855FA1CE62F}"/>
 					</ArgumentList>
+					<EntryList>
+						<Entry>
+							<Path>
+								<PathElementRef Name="STATE_Gameover" ID="{B4575F7A-5B24-4BBF-91C7-6AC804E1E713}"/>
+								<PathElementRef Name="SWITCH_rooms" ID="{1FB7C126-FFB0-4864-B143-1855FA1CE62F}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="Gameover" ID="{4908CEDC-806D-4B0C-8F2A-A35CF87CC600}" WorkUnitID="{CD55D0B8-66B0-4C7D-B51A-962D8172ADDF}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+					</EntryList>
 				</MusicSwitchContainer>
 			</ChildrenList>
 		</WorkUnit>
