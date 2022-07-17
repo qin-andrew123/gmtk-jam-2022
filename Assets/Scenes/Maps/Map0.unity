@@ -1327,6 +1327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Charger
       objectReference: {fileID: 0}
+    - target: {fileID: 3601197527815684829, guid: 10d0cbf1822330a4493e5d41e750488b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3601197527815684831, guid: 10d0cbf1822330a4493e5d41e750488b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1500,6 +1504,10 @@ PrefabInstance:
     - target: {fileID: 2822941547469678505, guid: d19515871be561a43b7f53d1b783b25a, type: 3}
       propertyPath: m_Name
       value: Enemy Shooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822941547469678505, guid: d19515871be561a43b7f53d1b783b25a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2822941547469678507, guid: d19515871be561a43b7f53d1b783b25a, type: 3}
       propertyPath: m_RootOrder
@@ -1916,6 +1924,10 @@ PrefabInstance:
     - target: {fileID: 4270020553715735903, guid: d482006529b50b0418584fe8980f51f2, type: 3}
       propertyPath: m_Name
       value: Enemy Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270020553715735903, guid: d482006529b50b0418584fe8980f51f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d482006529b50b0418584fe8980f51f2, type: 3}
