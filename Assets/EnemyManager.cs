@@ -31,6 +31,7 @@ public class EnemyManager : MonoBehaviour
     private float searchTimer;
     private float searchCountDown;
     private SpawnState state = SpawnState.counting;
+
     private void Start()
     {
         waveCountDown = timeBetweenWaves;
@@ -100,18 +101,19 @@ public class EnemyManager : MonoBehaviour
 
     private void WaveCompleted()
     {
-        Debug.Log("Wave Complete");
+        Debug.Log("Wave Complete, wave number was " + nextWave);
         state = SpawnState.counting;
         waveCountDown = timeBetweenWaves;
 
-        if (nextWave ++ > waves.Length - 1)
+        if (nextWave ++ >= waves.Length)
         {
             nextWave = 0;
-            Debug.Log("All Waves Complete. Looping ..."); 
+            GameManager.Instance.UpdateGameState(GameState.nextLevel);
             // Call to start new scene here
         }
         else
         {
+            Debug.Log(nextWave);
             nextWave++;
         }
     }

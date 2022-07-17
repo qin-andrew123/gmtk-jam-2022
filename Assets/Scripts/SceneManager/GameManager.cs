@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,54 @@ public class GameManager : MonoBehaviour
     public delegate void Health(int amount);
     public static event Health UpdateHealth;
 
+    public static event Action<GameState> OnGameStateChanged;
+    public GameState gameState;
+
+    public void UpdateGameState(GameState newState)
+    {
+        gameState = newState;
+        switch (newState)
+        {
+            case GameState.mainMenu:
+                HandleMainMenu();
+                break;
+            case GameState.levelOne:
+                HandleLevelOne();
+                break;
+            case GameState.victory:
+                HandleVictory();
+                break;
+            case GameState.death:
+                HandleDeath();
+                break;
+            case GameState.pause:
+                HandlePause();
+                break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+        }
+        OnGameStateChanged?.Invoke(newState);
+    }
+
+    
+
+    public void PauseGame()
+    {
+        if (gameIsPaused)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    private void Start()
+    {
+        UpdateGameState(GameState.mainMenu);
+    }
+
     // Start is called before the first frame update
     void Awake() {
         print("GameManager Awake");
@@ -22,8 +71,6 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(Manager);
     }
-    
-    
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Map1");
@@ -35,15 +82,43 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PauseGame ()
+
+    private void HandleMainMenu()
     {
-        if(gameIsPaused)
-        {
-            Time.timeScale = 0f;
-        }
-        else 
-        {
-            Time.timeScale = 1;
-        }
+
     }
+
+    private void HandlePause()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void HandleDeath()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void HandleVictory()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void HandleLevelOne()
+    {
+        
+    }
+    private void HandleNextLevel()
+    {
+
+    }
+}
+
+public enum GameState
+{
+    mainMenu,
+    levelOne,
+    nextLevel,
+    victory,
+    death,
+    pause,
 }

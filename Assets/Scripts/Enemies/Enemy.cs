@@ -9,6 +9,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float stoppingDistance;
     [SerializeField] protected float attackRate;
     [SerializeField] protected float preAttackAudioDuration = 0f; // this should be the length of pre attack audio
+    [SerializeField] protected Animator animator;
 
     protected Rigidbody2D rb;
     private bool canAttack = true;
