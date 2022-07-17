@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: smash
   cooldown: 1
-  activeTime: 2
+  activeTime: 0.5
   knockback: 100
   radius: 10
   jumpingAnimationTime: 1

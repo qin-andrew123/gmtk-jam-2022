@@ -15,4 +15,4 @@ MonoBehaviour:
   name: dash
   cooldown: 2
   activeTime: 0.2
-  dashVelocity: 50
+  dashVelocity: 20
