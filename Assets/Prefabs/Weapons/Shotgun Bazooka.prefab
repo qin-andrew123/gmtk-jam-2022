@@ -97,10 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9494aa48085e046e09feb3d4f74e42cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   fireRate: 0.2
-  spread: 0
   bulletSpeed: 20
   firePosition: {fileID: 0}
   bulletPrefab: {fileID: 5196141513470838171, guid: 8b4e0c0b7479f4946b14f44816cc8a95, type: 3}
   shootAngle: 45
-  spread: 5
+  bulletSpread: 45
+  numberOfBullets: 10
