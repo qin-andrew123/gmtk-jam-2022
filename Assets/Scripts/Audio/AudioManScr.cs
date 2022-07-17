@@ -10,8 +10,8 @@ public class AudioManScr : MonoBehaviour
     public GameObject charger;
 
     public GameObject weapon1;
-    public GameObject weapon2;
-    public GameObject weapon3;
+    public GameObject shotgun;
+    public GameObject grenade;
 
     public AK.Wwise.Event hit;
     public AK.Wwise.Event sniper_hit;
@@ -20,26 +20,35 @@ public class AudioManScr : MonoBehaviour
 
     private void OnEnable()
     {
-        player.GetComponent<Entity>().OnHit += PlaySound;
-        sniper.GetComponent<Entity>().OnHit += PlaySound;
-        ranger.GetComponent<Entity>().OnHit += PlaySound;
-        charger.GetComponent<Entity>().OnHit += PlaySound;
+        player.GetComponent<Entity>().OnHit += PlayerHit;
+        sniper.GetComponent<Entity>().OnHit += SniperHit;
+        ranger.GetComponent<Entity>().OnHit += RangerHit;
+        charger.GetComponent<Entity>().OnHit += ChargerHit;
+
     }
 
-    public void PlaySound()
+    public void PlayerHit()
     {
         hit.Post(player);
-        sniper_hit.Post(sniper);
-        ranger_hit.Post(ranger);
-        charger_hit.Post(charger);
+    }
+    public void SniperHit()
+    {
+        hit.Post(player);
+    }
+    public void RangerHit()
+    {
+        hit.Post(player);
+    }
+    public void ChargerHit()
+    {
+        hit.Post(player);
     }
 
     private void OnDisable()
     {
-        player.GetComponent<Entity>().OnHit -= PlaySound;
-        player.GetComponent<Entity>().OnHit -= PlaySound;
-        sniper.GetComponent<Entity>().OnHit -= PlaySound;
-        ranger.GetComponent<Entity>().OnHit -= PlaySound;
-        charger.GetComponent<Entity>().OnHit -= PlaySound;
+        player.GetComponent<Entity>().OnHit -= PlayerHit;
+        sniper.GetComponent<Entity>().OnHit -= SniperHit;
+        ranger.GetComponent<Entity>().OnHit -= RangerHit;
+        charger.GetComponent<Entity>().OnHit -= ChargerHit;
     }
 }
