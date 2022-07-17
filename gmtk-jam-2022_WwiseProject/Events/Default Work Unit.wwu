@@ -10,7 +10,7 @@
 								<Action Name="" ID="{F10F2C70-ACCD-4324-B882-5F37D6580C3D}" ShortID="557380759">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Bazooka" ID="{6CFE665D-5CDB-4DDE-9E2C-FC30C3BDF63A}" WorkUnitID="{EAE746EE-662B-46C3-B33F-E08F3685CD80}"/>
+											<ObjectRef Name="BazShot" ID="{25EF57CF-37E3-47CA-9FF2-812946ECE915}" WorkUnitID="{EAE746EE-662B-46C3-B33F-E08F3685CD80}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -33,6 +33,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Shotgun" ID="{B79D37F3-7C11-455E-933A-DBA622D3A44F}" WorkUnitID="{EAE746EE-662B-46C3-B33F-E08F3685CD80}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ExpBaz" ID="{9B77D222-DE16-4889-A1A5-23214A0432FB}">
+							<ChildrenList>
+								<Action Name="" ID="{8B77B671-DE06-4948-936F-94AE135D06E9}" ShortID="734857203">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ExpBaz" ID="{6E40EAAB-63FB-4F3B-8D05-4EB5D7F31323}" WorkUnitID="{EAE746EE-662B-46C3-B33F-E08F3685CD80}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -133,6 +144,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="charger_death" ID="{D6A7735F-5CEA-4F4C-A768-64A1B79FD7B6}" WorkUnitID="{EAE746EE-662B-46C3-B33F-E08F3685CD80}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_normal_snip_attack" ID="{2D8DDD02-E758-4ED8-96E9-3D4E21223DB8}">
+							<ChildrenList>
+								<Action Name="" ID="{3A205CC8-3513-45AF-B57E-7B202FD8AC7E}" ShortID="878182313">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="normal_snip_attack" ID="{E2278B0F-6E59-4E17-AA1E-21D3EF066C3D}" WorkUnitID="{EAE746EE-662B-46C3-B33F-E08F3685CD80}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_normal_snip_death" ID="{0CFD38EF-65D5-4669-967B-C10D15069066}">
+							<ChildrenList>
+								<Action Name="" ID="{96BD4B0F-9358-4FF9-ADCA-95D59EE34226}" ShortID="702738094">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="normal_snip_death" ID="{6DE0EA7B-A727-4F82-BEB2-8701F5ED2BE0}" WorkUnitID="{EAE746EE-662B-46C3-B33F-E08F3685CD80}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
