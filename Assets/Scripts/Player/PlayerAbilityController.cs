@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAbilityController : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class PlayerAbilityController : MonoBehaviour
     public Transform[] weapons;
     public Ability[] abilities;
 
-    public TMP_Text abilityText;
-    public TMP_Text weaponText;
+    public Image abilityImage;
+    public Image weaponImage;
     
     private AbilityHolder abilityHolder;
 
@@ -24,9 +25,37 @@ public class PlayerAbilityController : MonoBehaviour
     {
         abilityHolder = GetComponent<AbilityHolder>();
         ChoseAbilities();
-
-        abilityText.text = "Ability: " + abilities[selectedAbility].name;
-        weaponText.text = "Weapon: " + selectedWeapon;
+        // transform abilities[selectedAbility].name to lowe case
+        switch (abilities[selectedAbility].name.ToLower())
+        {
+            case "dash":
+                Debug.Log("abilities[selectedAbility].name.ToLower():" + abilities[selectedAbility].name.ToLower());
+                abilityImage.sprite = Resources.Load<Sprite>("Sprites/Ability=Dash Icon");
+                break;
+            case "smash":
+                abilityImage.sprite = Resources.Load<Sprite>("Sprites/Ability=Slam Icon");
+                break;
+            case "teleport":
+                abilityImage.sprite = Resources.Load<Sprite>("Sprites/Ability=Teleport Icon");
+                break;
+            default:
+                break;
+        }
+        switch (selectedWeapon)
+        {
+            case 0:
+                weaponImage.sprite = Resources.Load<Sprite>("Sprites/fireball");
+                break;
+            case 1:
+                weaponImage.sprite = Resources.Load<Sprite>("Sprites/iceball");
+                break;
+            case 2:
+                weaponImage.sprite = Resources.Load<Sprite>("Sprites/lightningball");
+                break;
+            default:
+                break;
+        }
+        
     }
 
     public void ChoseAbilities()
