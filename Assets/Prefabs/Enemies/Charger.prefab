@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2449bbf94dd110a4baaea75c883162fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 2
   stoppingDistance: 0
   attackRate: 0
   preAttackAudioDuration: 0

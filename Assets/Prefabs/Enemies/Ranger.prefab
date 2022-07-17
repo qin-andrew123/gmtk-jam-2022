@@ -222,9 +222,9 @@ GameObject:
   - component: {fileID: 2448979093205296579}
   - component: {fileID: 689153874628688233}
   - component: {fileID: -8355941920736598019}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ranger
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
