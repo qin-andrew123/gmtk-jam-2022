@@ -178,12 +178,8 @@ MonoBehaviour:
   abilities:
   - {fileID: 11400000, guid: 9a5509efe68ab4cf1b87e177e701cc0f, type: 2}
   - {fileID: 11400000, guid: 8985829a982a04d46b6de2239684e21b, type: 2}
-<<<<<<< HEAD
-  - {fileID: 11400000, guid: 2670bc6a3a9f14d028c4dddb3ee6fc65, type: 2}
-=======
   abilityImage: {fileID: 0}
   weaponImage: {fileID: 0}
->>>>>>> 8bfed10 (fixed player prefab)
 --- !u!61 &705148870580690592
 BoxCollider2D:
   m_ObjectHideFlags: 0
