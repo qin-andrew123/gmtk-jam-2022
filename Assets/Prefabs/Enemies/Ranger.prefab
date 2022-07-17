@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 6838970755966237452}
   - component: {fileID: 2448979093205296579}
   - component: {fileID: 689153874628688233}
+  - component: {fileID: -8355941920736598019}
   m_Layer: 0
   m_Name: Ranger
   m_TagString: Player
@@ -288,8 +289,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9254902, g: 0.5372549, b: 0.90847796, a: 1}
+  m_Sprite: {fileID: 1289013992, guid: 4f979080fd77fe84d84cc5854b8ad70f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -333,18 +334,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0035179257, y: -0.14423573}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.609375, y: 0.8125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.43009287, y: 0.5004519}
   m_EdgeRadius: 0
 --- !u!114 &2448979093205296579
 MonoBehaviour:
@@ -376,10 +377,31 @@ MonoBehaviour:
   stoppingDistance: 0
   attackRate: 0
   preAttackAudioDuration: 0
+  animator: {fileID: 0}
   player: {fileID: 0}
   bulletPrefab: {fileID: 5196141513470838171, guid: 8b4e0c0b7479f4946b14f44816cc8a95, type: 3}
   bulletSpeed: 10
   retreatDistance: 0
+--- !u!95 &-8355941920736598019
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6541801950024803673}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d587b342637143a48b1ff80fe216e9cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7266082235795858632
 GameObject:
   m_ObjectHideFlags: 0
