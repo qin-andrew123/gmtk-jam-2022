@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Animator animator;
     private Vector2 mousePosition;
     private Vector2 velocity;
 
@@ -22,19 +23,24 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        animator.SetBool("isMoving", true);
+        animator.SetFloat("moveX", velocity.x);
+        animator.SetFloat("moveY", velocity.y);
         Move();
+        
     }
 
     private void Move()
     {
+        animator.SetBool("isMoving", true);
         if(abilityHolder.IsActive())
            return; 
         Vector2 lookDirection = GetLookDirection();
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
-        
+
         rb.velocity = velocity * moveSpeed;
         //rb.MovePosition(rb.position + velocity * moveSpeed * Time.fixedDeltaTime);
     }
