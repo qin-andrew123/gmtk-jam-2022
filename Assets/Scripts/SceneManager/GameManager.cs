@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(Manager);
     }
-    
-    
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Map1");

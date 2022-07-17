@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 84d03866d08c347bbb97b53442f780e2
+=======
+guid: 7e55a2669435d7f49a8105ecfd67899c
+>>>>>>> 8f8b4a5 (Updated player art assets)
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
