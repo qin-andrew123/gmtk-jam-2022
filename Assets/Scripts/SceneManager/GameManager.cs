@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static GameObject Manager;
     public static bool gameIsPaused;
+    public delegate void Health(int amount);
+    public static event Health UpdateHealth;
+
     // Start is called before the first frame update
     void Awake() {
         print("GameManager Awake");
