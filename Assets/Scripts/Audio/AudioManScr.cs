@@ -24,10 +24,14 @@ public class AudioManScr : MonoBehaviour
     public AK.Wwise.Event ShotSingle;
     public AK.Wwise.Event Shotgun;
     public AK.Wwise.Event Baz;
+    public AK.Wwise.Event DoorOpen;
 
 
 
-
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     private void OnEnable()
     {
@@ -70,8 +74,18 @@ public class AudioManScr : MonoBehaviour
 
     void Shot()
     {
-        if (weapon1.activeSelf && Input.GetMouseButtonDown(0)) ShotSingle.Post(weapon1);
+        if (weapon1.activeSelf && Input.GetButton("Fire1")) ShotSingle.Post(weapon1);
         if (shotgun.activeSelf && Input.GetMouseButtonDown(0)) Shotgun.Post(shotgun);
         if (bazooka.activeSelf && Input.GetMouseButtonDown(0)) Baz.Post(bazooka);
+    }
+
+    void Update()
+    {
+        Shot();
+    }
+
+    void Door()
+    {
+        DoorOpen.Post(gameObject);
     }
 }
