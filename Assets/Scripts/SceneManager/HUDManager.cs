@@ -3,113 +3,101 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using AK.Wwise;
 
 public class HUDManager : MonoBehaviour
 {
-    private Image healthbar = null;
-    private Image movementAbility = null;
-    private Image attackAbility = null;
-    private Text timeText = null;
-    private GameObject panelIntro = null;
-    private GameObject panelHUD = null;
-    private GameObject panelDeath = null;
+
+    public GameObject[] attackIconsIntro = new GameObject[3];
+    public GameObject[] movementIconsIntro = new GameObject[3];
     
-    private float timeInLevel;
-    // Start is called before the first frame update
-    private float currentHealthValue;
-    private float newHealthValue = 100;
-    public Entity player;
+    public GameObject[] attackIconsHud = new GameObject[3];
+    public GameObject[] movementIconsHud = new GameObject[3];
+
+    public GameObject introPanel;
+    public GameObject hudPanel;
+
+    public Image healthBar;
+
+    public GameObject player;
+
+    private int currentAttackIcon = 0;
+    private int currentMovementIcon = 0;
     
-    private float startTime;
-    void Start()
+    public Sprite[] healthSprites;
+    
+    private void OnEnable()
     {
-        panelIntro = GameObject.Find("PanelIntro");
-        panelHUD = GameObject.Find("PanelHUD");
-        panelIntro.SetActive(true);
-        panelHUD.SetActive(false);
-        // set variable startTime to the current time
-        startTime = Time.time;
-
-        healthbar = GameObject.Find("Healthbar").GetComponent<Image>();
-
-        attackAbility = GameObject.Find("AttackIcon").GetComponent<Image>();
-        movementAbility = GameObject.Find("MovementIcon").GetComponent<Image>();
-
-        timeText = GameObject.Find("TimeText").GetComponent<Text>();
-        // for two seconds after the game starts hide GameObject Abilities        
-        // // change the image to be a red heart
-        // heart1.sprite = Resources.Load<Sprite>("Sprites/heart_red");
+        player.GetComponent<PlayerAbilityController>().OnAbilityChange += ChangeIcons;
+        player.GetComponent<Entity>().OnHit += ChangeValue;
     }
 
-    
-    void Update()
+    private void OnDisable()
     {
-        AddTime();
-        // NewBarValue(1);
-        if (startTime + 2 < Time.time)
-        {
-            // create an if condition to check if panelIntro is active
-            if (panelIntro.activeSelf)
-            {
-                panelIntro.SetActive(false);
-                panelHUD.SetActive(true);
-            }
-        }
-        if (currentHealthValue <= 0)
-        {
-            // create an if condition to check if panelIntro is active
-            if (panelIntro.activeSelf)
-            {
-                panelIntro.SetActive(false);
-                panelHUD.SetActive(true);
-            }
-        }
+        player.GetComponent<PlayerAbilityController>().OnAbilityChange -= ChangeIcons;
     }
 
-    void AddTime()
+    private void Start()
     {
-        if (currentHealthValue > 0)
-        {
-            timeInLevel += Time.deltaTime;
-            // round timeInLevel to integer
-            int time = (int)timeInLevel;
-            timeText.text = "Time: " + time;
-        }
+        StartCoroutine(HitPlayer());
+    }
 
+    private void ChangeIcons(int ability, int weapon)
+    {
+        attackIconsIntro[currentAttackIcon].SetActive(false);
+        movementIconsIntro[currentMovementIcon].SetActive(false);
+        attackIconsHud[currentAttackIcon].SetActive(false);
+        movementIconsHud[currentMovementIcon].SetActive(false);
+
+        currentAttackIcon = weapon;
+        currentMovementIcon = ability;
+        
+        attackIconsIntro[currentAttackIcon].SetActive(true);
+        movementIconsIntro[currentMovementIcon].SetActive(true);
+        attackIconsHud[currentAttackIcon].SetActive(true);
+        movementIconsHud[currentMovementIcon].SetActive(true);
+        
+        StartCoroutine(SwitchPanels());
+  
+        
+;    }
+
+    IEnumerator SwitchPanels()
+    {
+        yield return new WaitForSeconds(3f);
+        introPanel.SetActive(false);
+        hudPanel.SetActive(true);
+        
+    }
+
+    IEnumerator HitPlayer()
+    {
+        yield return new WaitForSeconds(5f);
+        player.GetComponent<Entity>().TakeDamage(20);
     }
 
     private void ChangeValue(int amount)
     {
-        currentHealthValue = amount;
+        switch (amount)
+        {
+            case >=100:
+                healthBar.sprite = healthSprites[0];
+                break;
+            case >80 and <100:
+                healthBar.sprite = healthSprites[1];
+                break;
+            case >60 and <80:
+                healthBar.sprite = healthSprites[2];
+                break;
+            case >40 and <60:
+                healthBar.sprite = healthSprites[3];
+                break;
+            case >0 and <40:
+                healthBar.sprite = healthSprites[4];
+                break;
+            case <=0:
+                healthBar.sprite = healthSprites[5];
+                break;
+        }
     }
-    // void NewBarValue(int currentHealth)
-    // {
-    //     // Debug.Log(currentHealth);
-    //     if(currentHealthValue != currentHealth)
-    //     {
-    //         Debug.Log("currentHealth:" + currentHealth);
-    //         // change the image of healthbar according to the newHealthValue with switch
-    //         switch (currentHealth)
-    //         {
-    //             case >=100:
-    //                 healthbar.sprite = Resources.Load<Sprite>("Sprites/Health Bar (5 HP)");
-    //                 break;
-    //             case >80 and <100:
-    //                 healthbar.sprite = Resources.Load<Sprite>("Sprites/Health Bar (4 HP)");
-    //                 break;
-    //             case >60 and <80:
-    //                 healthbar.sprite = Resources.Load<Sprite>("Sprites/Health Bar (3 HP)");
-    //                 break;
-    //             case >40 and <60:
-    //                 healthbar.sprite = Resources.Load<Sprite>("Sprites/Health Bar (2 HP)");
-    //                 break;
-    //             case >0 and <40:
-    //                 healthbar.sprite = Resources.Load<Sprite>("Sprites/Health Bar (1 HP)");
-    //                 break;
-    //             case <=0:
-    //                 healthbar.sprite = Resources.Load<Sprite>("1 HP Glow");
-    //                 break;
-    //         }
-    //     }
-    // }
 }
