@@ -143,3 +143,4 @@ tags
 *.prof
 *.validationcache
 */Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
+/Assets/Wwise/Editor/ProjectData/
