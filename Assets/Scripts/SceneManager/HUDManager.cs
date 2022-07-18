@@ -29,7 +29,7 @@ public class HUDManager : MonoBehaviour
     private void OnEnable()
     {
         player.GetComponent<PlayerAbilityController>().OnAbilityChange += ChangeIcons;
-        player.GetComponent<Entity>().OnHit += ChangeValue;
+        //player.GetComponent<Entity>().OnHit += ChangeValue;
     }
 
     private void OnDisable()

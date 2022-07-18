@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameObject Manager;
     public static bool gameIsPaused;
     public delegate void Health(int amount);
-    public static event Health UpdateHealth;
+    //public static event Health UpdateHealth;
 
     public static event Action<GameState> OnGameStateChanged;
     public GameState gameState;

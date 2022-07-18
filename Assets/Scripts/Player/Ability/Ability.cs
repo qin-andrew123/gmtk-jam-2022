@@ -13,6 +13,6 @@ public class Ability : ScriptableObject
 
     public virtual void Activate(GameObject parent)
     {
-        //OnActivate?.Invoke(name);
+        OnActivate?.Invoke(name);
     }
 }

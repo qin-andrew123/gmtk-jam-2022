@@ -5,9 +5,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
-{
-    public String name = "weapon";
-    
+{  
     // Weapon attribute
     private int damage;
     public float fireRate;
@@ -25,6 +23,7 @@ public abstract class Weapon : MonoBehaviour
     private void Start()
     {
         canShoot = true;
+        name = "weapon";
     }
 
     public void FixedUpdate()
