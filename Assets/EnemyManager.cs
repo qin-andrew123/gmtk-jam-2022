@@ -56,7 +56,7 @@ public class EnemyManager : MonoBehaviour
 
         if (waveCountDown <= 0)
         {
-            if (state != SpawnState.spawning)
+            if (state != SpawnState.spawning && nextWave < waves.Length)
             {
                 StartCoroutine(SpawnWave(waves[nextWave]));
             }
